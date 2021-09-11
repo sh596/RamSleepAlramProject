@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/ic_close.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/ic_rotate_white.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/line_round_background_white_600.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/main_background.xml" value="0.15230263157894736" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/menu_selector.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/moon.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/profile.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/round_background_white_600_1.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/setting.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/sun.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/sun_big.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/sun_red.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/activity_main.xml" value="0.128" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_morning.xml" value="0.264" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_night.xml" value="0.14275956284153005" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_profile.xml" value="0.14856557377049182" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_setting.xml" value="0.14856557377049182" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_alarm.xml" value="0.2" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/menu/navigation_menu.xml" value="0.14835526315789474" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
