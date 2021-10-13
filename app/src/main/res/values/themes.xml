@@ -10,7 +10,10 @@
         <item name="colorSecondaryVariant">@color/Primary_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">#3d3d3d</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/Primary_700</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="switchStyle">
+        <item name="colorControlActivated">@color/object_700</item>
     </style>
 </resources>

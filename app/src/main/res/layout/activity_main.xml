@@ -5,32 +5,220 @@
 
     <data>
 
+        <variable
+            name="bannerViewModel"
+            type="com.example.alarmproject.main.BannerViewModel" />
+
+        <variable
+            name="mainAlarmViewModel"
+            type="com.example.alarmproject.main.AlarmViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.MainActivity">
+        android:background="@color/Primary_700"
+        tools:context=".alarm.AlarmFragment">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottomBar" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomBar"
+        <androidx.cardview.widget.CardView
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginRight="24dp"
+            app:cardCornerRadius="47dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:background="@color/object_700"
+                android:src="@drawable/sun_big" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/mainBannerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/notosanskrm"
+            android:includeFontPadding="false"
+            android:text="@{bannerViewModel.bannerText}"
+            android:textColor="@color/object_700"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/mainAlarmAddButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/round_background_white_600_radius_30"
+            android:elevation="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="13dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="13dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainBannerText">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text="새로운 알람"
+                android:textColor="@color/object_700"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/plus_icon_black_700" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Primary_600"
-            app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/navigation_menu"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/line_round_background_white_600"
             android:elevation="5dp"
-            app:itemIconTint="@drawable/menu_selector"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/mainAlarmAddButton">
 
+            <TextView
+                android:id="@+id/wakeupText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text="기상"
+                android:textColor="@color/object_700"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/wakeupTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/object_700"
+                android:textSize="45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wakeupText2" />
+
+            <TextView
+                android:id="@+id/morningBedTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/object_700"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="@id/wakeupTimeText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/wakeupTimeText"
+                app:layout_constraintTop_toTopOf="@id/wakeupTimeText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text="취침"
+                android:textColor="@color/object_700"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/morningBedTimeText"
+                app:layout_constraintStart_toStartOf="@id/morningBedTimeText" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mainDaysOfWeekRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wakeupTimeText"
+                app:layout_constraintVertical_bias="1.0"
+                tools:itemCount="7"
+                tools:listitem="@layout/item_days_of_week_main" />
+
+            <TextView
+                android:id="@+id/morningSleepText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text="수면 시간"
+                android:textColor="@color/object_700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/morningBedTimeText"
+                app:layout_constraintTop_toBottomOf="@id/morningBedTimeText" />
+
+
+            <TextView
+                android:id="@+id/morningSleepTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/notosanskrm"
+                android:includeFontPadding="false"
+                android:text="0시간"
+                android:textColor="@color/object_700"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/morningSleepText"
+                app:layout_constraintTop_toBottomOf="@id/morningSleepText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainItem"
+            tools:listitem="@layout/item_alarm" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:backgroundTint="@color/object_700"
+            android:src="@drawable/setting"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@null" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

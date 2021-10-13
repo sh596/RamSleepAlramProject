@@ -1,4 +1,4 @@
-package com.example.alarmproject.alarm
+package com.example.alarmproject.main
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.*
 
 @Database(entities = [User::class], version = 1)
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao() : UserDao
     companion object {

@@ -3,24 +3,43 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/days_of_week_radiobutton.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/dialog_radio.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/ic_close.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/ic_rotate_white.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/ic_sleep.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/line_round_background_white_600.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/main_background.xml" value="0.15230263157894736" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/menu_selector.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/moon.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/profile.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/round_background_white_600_1.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/round_background_white_600_bottomradius_30.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/round_background_white_600_radius_30.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/round_background_white_700_radius_30.xml" value="0.16085526315789472" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/round_background_white_700_radius_8.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/setting.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/sun.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/sun_big.xml" value="0.16085526315789472" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/drawable/sun_red.xml" value="0.16085526315789472" />
-        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/activity_main.xml" value="0.128" />
-        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_morning.xml" value="0.264" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/Activity_radio.xml" value="0.136" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/activity_create_alarm.xml" value="0.1" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/activity_radio.xml" value="0.136" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/dialog_radio.xml" value="0.12" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_create_sleep.xml" value="0.2" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_create_wake.xml" value="0.264" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_morning.xml" value="0.152" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_night.xml" value="0.14275956284153005" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_profile.xml" value="0.14856557377049182" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/fragment_setting.xml" value="0.14856557377049182" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_alarm.xml" value="0.2" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_days_of_week_1.xml" value="0.4" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_days_of_week_2.xml" value="0.1506578947368421" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_days_of_week_create.xml" value="0.6" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_days_of_week_main.xml" value="0.4" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_radio.xml" value="0.2" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/layout/item_sleep_time.xml" value="0.176" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/AlarmProject/app/src/main/res/menu/navigation_menu.xml" value="0.14835526315789474" />
       </map>
     </option>
