@@ -12,26 +12,12 @@ import com.example.alarmproject.databinding.ActivityRadioBinding
 
 class RadioDialog(
     context: Context,
-    title: String,
-    list: MutableList<String>,
-    radioDialogInterface: RadioDialogInterface,
-    viewtype: Int
+    private val title: String,
+    private val list: MutableList<String>,
+    private val posClick:(Int) -> Unit
 ) : Dialog(context) {
 
-
-    private val title: String
-    private val list: MutableList<String>
-    private val radioDialogInterface: RadioDialogInterface
-    private val viewType: Int
     var position = 0
-
-    init {
-        this.title = title
-        this.list = list
-        this.radioDialogInterface = radioDialogInterface
-        this.viewType = viewtype
-    }
-
     private lateinit var binding: ActivityRadioBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,12 +48,11 @@ class RadioDialog(
                     break
                 }
             }
-            radioDialogInterface.posClick(viewType)
+            posClick(position)
             dismiss()
         }
 
         binding.negativeButton.setOnClickListener {
-            radioDialogInterface.negClick(viewType)
             dismiss()
         }
     }

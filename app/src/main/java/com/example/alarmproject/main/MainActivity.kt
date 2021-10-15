@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding.mainAlarmAddButton.setOnClickListener {
             startActivity(Intent(this,CreateAlarmActivity::class.java))
         }
-
     }
 
 

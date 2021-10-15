@@ -1,5 +1,8 @@
 package com.example.alarmproject.main
 
+import android.content.ContentValues.TAG
+import android.util.Log
+import android.widget.CompoundButton
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.alarmproject.utils.Constant
@@ -7,6 +10,17 @@ import com.example.alarmproject.utils.Constant
 class CreateWakeViewModel() : ViewModel() {
     var againAlarmTime = MutableLiveData<String>()
     var vibration = MutableLiveData<String>()
+    var againAlarmChecked = MutableLiveData<Boolean>()
+    var pickerHour = MutableLiveData<Int>()
+    var pickerMin = MutableLiveData<Int>()
+
+    init {
+        againAlarmTime.value = "사용 안함"
+        vibration.value = "기본"
+        againAlarmChecked.value = false
+        pickerHour.value = 6
+        pickerMin.value = 0
+    }
 
     fun setVibration(code: Int){
         when (code) {
@@ -24,5 +38,6 @@ class CreateWakeViewModel() : ViewModel() {
             againAlarmTime.value = "${code}분"
         }
     }
+
 }
 

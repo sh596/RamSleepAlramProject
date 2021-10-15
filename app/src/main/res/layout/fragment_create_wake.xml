@@ -4,9 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.example.alarmproject.main.AlarmViewModel" />
+
         <variable
             name="viewModel"
             type="com.example.alarmproject.main.CreateWakeViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.example.alarmproject.main.CreateWakeFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                android:onClick="@{fragment::finishActivity}"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -85,7 +96,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="60dp"
-            android:background="@drawable/round_background_white_600_radius_8"
+            android:background="@drawable/background_white_600_radius_8"
             android:elevation="5dp"
             android:gravity="center"
             android:paddingTop="12dp"
@@ -98,7 +109,9 @@
                 android:id="@+id/createWakeTimePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:timePickerMode="spinner" />
+                android:timePickerMode="spinner"
+                android:hour="@={viewModel.pickerHour}"
+                android:minute="@={viewModel.pickerMin}"/>
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -107,7 +120,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/round_background_white_600_radius_8"
+            android:background="@drawable/background_white_600_radius_8"
             android:elevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
@@ -120,6 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:onClick="@{fragment::setVibrationDialog}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -175,6 +189,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:onClick="@{fragment::setAgainAlarmDialog}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createWakeLine1">
@@ -212,6 +227,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
+                        android:checked="@{viewModel.againAlarmChecked}"
+                        android:onCheckedChanged="@{fragment::checkAgainAlarm}"
                         android:theme="@style/switchStyle" />
                 </LinearLayout>
             </LinearLayout>
@@ -224,13 +241,14 @@
             android:layout_marginStart="65dp"
             android:layout_marginEnd="65dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/round_background_white_600_radius_8"
+            android:background="@drawable/background_white_600_radius_8"
             android:elevation="5dp"
             android:fontFamily="@font/notosanskrm"
             android:includeFontPadding="false"
             android:text="다음"
             android:textColor="@color/object_700"
             android:textSize="18sp"
+            android:onClick="@{fragment::nextFragment}"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

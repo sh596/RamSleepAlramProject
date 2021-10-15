@@ -12,13 +12,8 @@ import com.example.alarmproject.databinding.ItemRadioBinding
 class RadioAdapter(list: MutableList<String>, checkList: MutableList<Boolean>) : RecyclerView.Adapter<RadioAdapter.ViewHolder>() {
 
     private lateinit var binding: ItemRadioBinding
-    private val list : MutableList<String>
-    var checkList : MutableList<Boolean>
-
-    init{
-        this.list = list
-        this.checkList = checkList
-    }
+    private val list : MutableList<String> = list
+    var checkList : MutableList<Boolean> = checkList
 
     class ViewHolder(val binding: ItemRadioBinding) : RecyclerView.ViewHolder(binding.root){
         fun onBind(option: String, isCheck: Boolean){

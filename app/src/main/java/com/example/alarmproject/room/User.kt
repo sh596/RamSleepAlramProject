@@ -8,4 +8,6 @@ data class User(
     @PrimaryKey val id: Int,
     val mainWakeUpTime: Int,
     val mainSleepTime: Int,
+    val againAlarmTime: Int,
+    val earlyAlarmTime: Int,
 )

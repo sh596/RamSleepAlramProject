@@ -1,24 +1,19 @@
 package com.example.alarmproject.main
 
-import android.content.ContentValues.TAG
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.CompoundButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.alarmproject.R
 import com.example.alarmproject.databinding.FragmentCreateWakeBinding
 import com.example.alarmproject.dialog.RadioDialog
-import com.example.alarmproject.dialog.RadioDialogInterface
 import com.example.alarmproject.utils.Constant
 
-class CreateWakeFragment : Fragment(), RadioDialogInterface {
+class CreateWakeFragment : Fragment(){
 
     private lateinit var binding: FragmentCreateWakeBinding
     private lateinit var vibrationDialog: RadioDialog
@@ -40,71 +35,59 @@ class CreateWakeFragment : Fragment(), RadioDialogInterface {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_wake, container, false)
         binding.viewModel = wakeViewModel
+        binding.mainViewModel = viewModel
+        binding.fragment = this
         binding.lifecycleOwner = this
 
-        val view = binding.root
+        return binding.root
+    }
 
-        wakeViewModel.setAgainAlarmTime(viewModel.againAlarmTime.value!!)
-        wakeViewModel.setVibration(viewModel.vibration.value!!)
+    fun nextFragment(view: View) {
+        viewModel.wakeUpTime.value = wakeViewModel.pickerHour.value!! *60 + wakeViewModel.pickerMin.value!!
+        (activity as CreateAlarmActivity).nextFragment()
+    }
 
-        setDialog()
 
-        binding.createWakeAgainAlarmSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
+    fun checkAgainAlarm(buttonView: CompoundButton, isCheck: Boolean) {
+        if (isCheck) {
+            if (viewModel.againAlarmTime.value == 0) {
                 wakeViewModel.setAgainAlarmTime(Constant.AGAIN_ALARM_TIME_1)
-            }else{
-                wakeViewModel.setAgainAlarmTime(0)
-
+                viewModel.setAgainAlarmTime(1)
             }
-        }
-
-        binding.createWakeNextButton.setOnClickListener {
-            viewModel.apply {
-                wakeUpTime.value = getTime()
-            }
-            (activity as CreateAlarmActivity).nextFragment()
-        }
-
-        binding.createWakeBackButton.setOnClickListener {
-            (activity as CreateAlarmActivity).finish()
-        }
-
-        return view
-    }
-
-    private fun setDialog(){
-        binding.createWakeBellLayout.setOnClickListener {
-            vibrationDialog = RadioDialog(requireView().context, "진동 설정", mutableListOf("기본", "짧은", "긴", "시끄러운"), this,Constant.VIBRATION_DIALOG)
-            vibrationDialog.show()
-        }
-
-        binding.createWakeAgainAlarmLayout.setOnClickListener {
-            againAlarmTimeDialog = RadioDialog(requireView().context,"알람 간격", mutableListOf("5분", "10분", "15분", "20분"), this,Constant.AGAIN_TIME_DIALOG)
-            againAlarmTimeDialog.show()
-        }
-
-    }
-
-    private fun getTime(): Int? {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            (binding.createWakeTimePicker.hour * 100) + binding.createWakeTimePicker.minute
         } else {
-            binding.createWakeTimePicker.currentHour * 100 + binding.createWakeTimePicker.currentMinute
+            wakeViewModel.setAgainAlarmTime(0)
+            viewModel.againAlarmTime.value = 0
         }
     }
 
+    fun setVibrationDialog(view: View) {
+        vibrationDialog = RadioDialog(
+            requireView().context, "진동 설정",
+            mutableListOf("기본", "짧은", "긴", "시끄러운"),  vibrationDialogPosClick
+        )
+        vibrationDialog.show()
+    }
 
-    override fun posClick(viewType: Int) {
-        if (viewType == Constant.VIBRATION_DIALOG) {
-            viewModel.setVibration(vibrationDialog.position)
+    fun setAgainAlarmDialog(view: View) {
+        againAlarmTimeDialog = RadioDialog(
+            requireView().context, "알람 간격",
+            mutableListOf("5분", "10분", "15분", "20분"), againAlarmDialogPosClick
+        )
+        againAlarmTimeDialog.show()
+    }
+
+    fun finishActivity(view: View) {
+        (activity as CreateAlarmActivity).finish()
+    }
+
+    private val vibrationDialogPosClick  = {position : Int ->
+            viewModel.setVibration(position)
             wakeViewModel.setVibration(viewModel.vibration.value!!)
-        } else {
-            viewModel.setAgainAlarmTime(againAlarmTimeDialog.position)
-            wakeViewModel.setAgainAlarmTime(viewModel.againAlarmTime.value!!)
-            binding.createWakeAgainAlarmSwitch.isChecked = true
-        }
     }
 
-    override fun negClick(viewType: Int) {
+    private val againAlarmDialogPosClick = {position: Int ->
+        viewModel.setAgainAlarmTime(position)
+        wakeViewModel.setAgainAlarmTime(viewModel.againAlarmTime.value!!)
+        binding.createWakeAgainAlarmSwitch.isChecked = true
     }
 }
