@@ -11,7 +11,6 @@ import java.util.*
 
 class BannerViewModel(val context: Context) : ViewModel() {
     val bannerText = MutableLiveData<String>()
-    var mainWakeUpTime = MutableLiveData<String>()
 
     init {
         setBannerText()

@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.alarmproject.main.SleepTimeItem" />
+            type="com.example.alarmproject.create.SleepTimeItem" />
     </data>
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
-        android:background="@drawable/background_white_600_radius_8"
+        android:background="@drawable/background_primary_600_radius_8"
         android:elevation="5dp">
 
         <TextView

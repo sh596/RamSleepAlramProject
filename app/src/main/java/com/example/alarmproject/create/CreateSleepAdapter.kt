@@ -1,4 +1,4 @@
-package com.example.alarmproject.main
+package com.example.alarmproject.create
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.alarmproject.R
 import com.example.alarmproject.databinding.ItemSleepTimeBinding
 
-class CreateSleepAdapter(private val list: MutableList<SleepTimeItem>) :
+class CreateSleepAdapter(private val list: MutableList<SleepTimeItem>, private val checkRadioButton:(Int) -> Unit) :
     RecyclerView.Adapter<CreateSleepAdapter.ViewHolder>() {
     private lateinit var binding: ItemSleepTimeBinding
 
@@ -21,9 +21,9 @@ class CreateSleepAdapter(private val list: MutableList<SleepTimeItem>) :
         private fun check(isCheck :Boolean){
             binding.itemSleepTimeRadioButton.isChecked = isCheck
             if(isCheck){
-                binding.sleepTimeLayout.background = ContextCompat.getDrawable(binding.root.context, R.drawable.background_white_600_radius_8_line)
+                binding.sleepTimeLayout.background = ContextCompat.getDrawable(binding.root.context, R.drawable.background_primary_600_radius_8_line_yellow)
             }else{
-                binding.sleepTimeLayout.background = ContextCompat.getDrawable(binding.root.context, R.drawable.background_white_600_radius_8)
+                binding.sleepTimeLayout.background = ContextCompat.getDrawable(binding.root.context, R.drawable.background_primary_600_radius_8)
             }
         }
 
@@ -47,6 +47,7 @@ class CreateSleepAdapter(private val list: MutableList<SleepTimeItem>) :
                 for (i in checkList.indices) {
                     checkList[i] = i == position
                 }
+                checkRadioButton(position)
                 notifyDataSetChanged()
             }
         }

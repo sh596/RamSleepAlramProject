@@ -1,4 +1,4 @@
-package com.example.alarmproject.main
+package com.example.alarmproject.create
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,9 +6,15 @@ import androidx.lifecycle.ViewModel
 class CreateSleepViewModel() : ViewModel() {
     val wakeTime = MutableLiveData<String>()
     var sleepTime = MutableLiveData<String>()
-    var againAlarmChecked = MutableLiveData<Boolean>()
+    var earlyAlarmChecked = MutableLiveData<Boolean>()
     var earlyAlarmTime = MutableLiveData<String>()
     var itemList = MutableLiveData<MutableList<SleepTimeItem>>()
+
+    init {
+        sleepTime.value = "9시간"
+        earlyAlarmChecked.value = false
+        earlyAlarmTime.value = "사용 안함"
+    }
 
     fun setItemList(time: Int){
         itemList.value = mutableListOf(
@@ -23,12 +29,17 @@ class CreateSleepViewModel() : ViewModel() {
         wakeTime.value = String.format("%s %02d:%02d", setAmPm(time/60), change12hour(time/60), time%60)
     }
 
-    fun setSleepTime(wakeTime: Int, sleepTime: Int){
-        val time = wakeTime - sleepTime
-        earlyAlarmTime.value = "${time/60} 시간${time%60}분"
+    fun setSleepTime(position: Int){
+         sleepTime.value = when(position){
+            0 -> "9시간"
+            1 -> "7시간 30분"
+            2 -> "6시간"
+            3 -> "4시간 30분"
+            else -> "9시간"
+        }
     }
 
-    fun setAgainAlarmTime(code: Int){
+    fun setEarlyAlarmTime(code: Int){
         if (code == 0){
             earlyAlarmTime.value = "사용 안함"
         }else{

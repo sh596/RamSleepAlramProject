@@ -6,16 +6,12 @@
     <data>
 
         <variable
-            name="mainViewModel"
-            type="com.example.alarmproject.main.AlarmViewModel" />
-
-        <variable
             name="viewModel"
-            type="com.example.alarmproject.main.CreateWakeViewModel" />
+            type="com.example.alarmproject.create.CreateWakeViewModel" />
 
         <variable
             name="fragment"
-            type="com.example.alarmproject.main.CreateWakeFragment" />
+            type="com.example.alarmproject.create.CreateWakeFragment" />
 
     </data>
 
@@ -52,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:background="#00000000"
                 android:src="@drawable/ic_back"
-                android:onClick="@{fragment::finishActivity}"/>
+                android:onClick="@{fragment::finishFragment}" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -96,7 +92,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="60dp"
-            android:background="@drawable/background_white_600_radius_8"
+            android:background="@drawable/background_primary_600_radius_8"
             android:elevation="5dp"
             android:gravity="center"
             android:paddingTop="12dp"
@@ -111,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:timePickerMode="spinner"
                 android:hour="@={viewModel.pickerHour}"
-                android:minute="@={viewModel.pickerMin}"/>
+                android:minute="@={viewModel.pickerMin}" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -120,7 +116,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/background_white_600_radius_8"
+            android:background="@drawable/background_primary_600_radius_8"
             android:elevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
@@ -241,7 +237,7 @@
             android:layout_marginStart="65dp"
             android:layout_marginEnd="65dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/background_white_600_radius_8"
+            android:background="@drawable/background_primary_600_radius_8"
             android:elevation="5dp"
             android:fontFamily="@font/notosanskrm"
             android:includeFontPadding="false"
@@ -250,5 +246,6 @@
             android:textSize="18sp"
             android:onClick="@{fragment::nextFragment}"
             app:layout_constraintBottom_toBottomOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

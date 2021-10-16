@@ -3,6 +3,7 @@ package com.example.alarmproject.room
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface UserDao {
@@ -10,4 +11,6 @@ interface UserDao {
     fun getAll() : List<User>
     @Insert
     fun setAlarm(user: User)
+    @Query("SELECT * FROM mainTable WHERE isMain")
+    fun getMainAlarm(): List<User>
 }

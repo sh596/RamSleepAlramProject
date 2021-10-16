@@ -1,4 +1,4 @@
-package com.example.alarmproject.main
+package com.example.alarmproject.create
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ class CreateWakeFragment : Fragment(){
     private lateinit var againAlarmTimeDialog: RadioDialog
 
     private val viewModel by lazy {
-        ViewModelProvider(requireActivity())[AlarmViewModel::class.java]
+        ViewModelProvider(requireActivity())[AlarmFragmentViewModel::class.java]
     }
 
     private val wakeViewModel by lazy {
@@ -35,7 +35,6 @@ class CreateWakeFragment : Fragment(){
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_wake, container, false)
         binding.viewModel = wakeViewModel
-        binding.mainViewModel = viewModel
         binding.fragment = this
         binding.lifecycleOwner = this
 
@@ -43,7 +42,7 @@ class CreateWakeFragment : Fragment(){
     }
 
     fun nextFragment(view: View) {
-        viewModel.wakeUpTime.value = wakeViewModel.pickerHour.value!! *60 + wakeViewModel.pickerMin.value!!
+        viewModel.wakeUpTime.value = wakeViewModel.pickerHour.value!! * 60 + wakeViewModel.pickerMin.value!!
         (activity as CreateAlarmActivity).nextFragment()
     }
 
@@ -76,7 +75,7 @@ class CreateWakeFragment : Fragment(){
         againAlarmTimeDialog.show()
     }
 
-    fun finishActivity(view: View) {
+    fun finishFragment(view: View) {
         (activity as CreateAlarmActivity).finish()
     }
 

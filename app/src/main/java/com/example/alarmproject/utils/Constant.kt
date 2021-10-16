@@ -12,12 +12,11 @@ class Constant {
         const val AGAIN_ALARM_TIME_3 = 15
         const val AGAIN_ALARM_TIME_4 = 20
 
-        const val VIBRATION_DIALOG = 0
-        const val AGAIN_TIME_DIALOG = 1
-
         const val EARLY_ALARM_TIME_1 = 10
         const val EARLY_ALARM_TIME_2 = 20
         const val EARLY_ALARM_TIME_3 = 30
+
+        const val NOTIFICATION_ID = 0
 
     }
 }

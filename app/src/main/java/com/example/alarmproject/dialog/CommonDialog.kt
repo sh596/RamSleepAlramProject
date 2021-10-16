@@ -1,30 +1,31 @@
 package com.example.alarmproject.dialog
 
 import android.app.Dialog
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import com.example.alarmproject.R
-import com.example.alarmproject.databinding.DialogRadioBinding
+import com.example.alarmproject.databinding.DialogCommonBinding
 
-class RadioDialog(
+class CommonDialog(
     context: Context,
     private val title: String,
-    private val list: MutableList<String>,
-    private val posClick:(Int) -> Unit
+    private val message: String,
+    private val posClick:() -> Unit
 ) : Dialog(context) {
 
-    var position = 0
-    private lateinit var binding: DialogRadioBinding
+    private lateinit var binding: DialogCommonBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.inflate(
             LayoutInflater.from(context),
-            R.layout.dialog_radio,
+            R.layout.dialog_common,
             null,
             false
         );
@@ -33,37 +34,20 @@ class RadioDialog(
     }
 
     private fun showDialog() {
-
+        Log.d(TAG, "showDialog: 성공")
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        binding.radioDialogText.text = title
+        binding.titleText.text = title
 
-        val adapter = RadioAdapter(list, setCheckList())
-        binding.radioDialogRecyclerView.adapter = adapter
+        binding.messageText.text = message
 
         binding.positiveButton.setOnClickListener {
-            for (i in list.indices) {
-                if (adapter.checkList[i]) {
-                    position = i
-                    break
-                }
-            }
-            posClick(position)
+            posClick()
             dismiss()
         }
 
         binding.negativeButton.setOnClickListener {
             dismiss()
         }
-    }
-
-    fun setCheckList(): MutableList<Boolean> {
-        val checkList = mutableListOf<Boolean>()
-        repeat(list.size) {
-            checkList.add(false)
-        }
-        checkList[0] = true
-
-        return checkList
     }
 }

@@ -1,4 +1,4 @@
-package com.example.alarmproject.main
+package com.example.alarmproject.create
 
 import android.content.ContentValues.TAG
 import android.util.Log
